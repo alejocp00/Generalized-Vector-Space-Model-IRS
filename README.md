@@ -10,8 +10,8 @@ En el proyecto se utiliza [python](https://www.python.org/) como lenguaje de pro
 
 ## Autores
 
-- Ana Karla Caballero Gonzales C411 @anakarla99
-- Alejandro Camacho Pérez C412 @alejocp00
+- Ana Karla Caballero Gonzales C411 [@anakarla99](https://www.github.com/anakarla99)
+- Alejandro Camacho Pérez C412 [@alejocp00](https://www.github.com/alejocp00)
 
 ## Modelo a Implementar
 
