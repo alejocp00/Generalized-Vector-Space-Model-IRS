@@ -99,13 +99,4 @@ def calculate_similarity(doc_index, query_vector):
     )
 
 
-# print ("Ingrese una consulta de búsqueda:")
-# query = input()
 
-# # Buscar documentos similares a la consulta
-# results = search_query(query)
-
-# # Imprimir los resultados
-# print ("Resultados:")
-# for i, result in enumerate(results):
-#     print (f"Resultado {i+1}: {result}")
