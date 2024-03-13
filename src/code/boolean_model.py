@@ -99,9 +99,9 @@ def get_matching_docs(query_dnf):
                 terms = []
                 for subterm in term.args:
                     if isinstance(subterm, Not):
-                        terms.append(not_term_in_docs(subterm.args[0], corpus))
+                        terms.append(not_term_in_docs(subterm.args[0], filtered_docs))
                     else:
-                        terms.append(term_in_docs(subterm, corpus))
+                        terms.append(term_in_docs(subterm, filtered_docs))
 
                 setTemp = set()
                 for i in terms:
