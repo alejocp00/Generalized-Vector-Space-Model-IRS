@@ -21,6 +21,7 @@ weight_doc_matrix = data["vector representation"]
 vocabulary = data["vocabulary"]
 correlation_matrix = data["correlation_matrix"]
 n = len(correlation_matrix[0])
+min_similarity = 1
 
 
 def search_query(query):
@@ -42,7 +43,9 @@ def search_query(query):
     similarity = [calculate_similarity(i, query_vector) for i in range(len(docs))]
 
     # Enlistar los titulos y similitud de los resultados
-    results = [(titles[i], sim) for i, sim in enumerate(similarity) if sim >= 1]
+    results = [
+        (titles[i], sim) for i, sim in enumerate(similarity) if sim > min_similarity
+    ]
     results.sort(reverse=True)
     return results
 
@@ -54,15 +57,6 @@ def tf_idf(term, processed_query):
     d = sum(1 for doc in filtered_docs if term in doc)
     idf = np.log(n / (d + 1))  # Añadir 1 para evitar división por cero
     return tf * idf
-
-    # Calcular IDF (Inverse Document Frequency)
-    d = sum(1 for doc in filtered_docs if term in doc)
-    idf = math.log(n / (d + 1))  # Añadir 1 para evitar división por cero
-
-    # Calcular el peso del término en la consulta
-    weight = tf * idf
-
-    return weight
 
 
 def calculate_similarity(doc_index, query_vector):

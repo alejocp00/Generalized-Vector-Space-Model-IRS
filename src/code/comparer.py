@@ -5,7 +5,7 @@ import os
 import json
 
 
-def compare_models(query, query_id):
+def compare_models(query, query_id, data):
 
     results_vect0 = search_query(query)
     results_vect = []
@@ -20,8 +20,7 @@ def compare_models(query, query_id):
     f_bool = confusion_matrix(results_bool, qrls, query_id)
     f_vect = confusion_matrix(results_vect, qrls, query_id)
 
-    print("Boolean Model F-Measure: ", f_bool)
-    print("Vector Model F-Measure: ", f_vect)
+    return f_bool, f_vect
 
 
 def confusion_matrix(rec_docs, qrls, query_id):
@@ -68,17 +67,17 @@ def get_relevant_rec_and_no_relevant_rec(query_tuples, rec_docs, relevance_metri
     return relevant_rec
 
 
-# Obtener la ruta del directorio actual
-current_dir = os.path.dirname(os.path.abspath(__file__))
+# # Obtener la ruta del directorio actual
+# current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Construir la ruta al archivo corpus.json
-corpus_path = os.path.join(current_dir, "..", "..", "data", "corpus.json")
+# # Construir la ruta al archivo corpus.json
+# corpus_path = os.path.join(current_dir, "..", "..", "data", "corpus.json")
 
-with open(corpus_path, "r") as json_file:
-    data = json.load(json_file)
+# with open(corpus_path, "r") as json_file:
+#     data = json.load(json_file)
 
-i = 0
-while i < 5:
-    query = data["queries"][i]
-    compare_models(query, i)
-    i += 1
+# i = 0
+# while i < 30:
+#     query = data["queries"][i]
+#     compare_models(query, i)
+#     i += 1
